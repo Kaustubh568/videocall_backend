@@ -5,7 +5,11 @@ require("dotenv").config();   // to use .env file
 const PORT = process.env.PORT || 8000;
 
 const io = new Server(PORT,{
-    cors: true,
+    cors: {
+        origin: "https://joyful-biscotti-94f963.netlify.app", 
+        methods: ["GET", "POST"],
+        credentials: true
+    }
 })
 console.log("Server is running at ---------->", PORT);
 
